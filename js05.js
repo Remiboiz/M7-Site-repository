@@ -42,6 +42,8 @@ function createLightbox() {
        lightBox.appendChild(lbNext); 
        lbNext.id= "1bNext";
        lbNext.innerHTML = "&#9654;";
+       lbNext.onclick = showNext;
+
 
    // Design the lightbox Play-Pause button
        lightBox.appendChild(lbPlay); 
@@ -60,7 +62,12 @@ function createLightbox() {
       lbImages.appendChild(image);
    }
 
-   //
+   // Function to move forward through the image list
+      function showNext() {
+      lbImages.appendChild(lbImages.firstElementChild);
+      (currentImg < imgCount) ? currentImg++ : currentImg = 1;
+      lbCounter.textContent = currentImg + "/" + imgCount;
+}
 }
 
 
